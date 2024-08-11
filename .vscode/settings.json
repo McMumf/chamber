@@ -1,6 +1,18 @@
 {
     "files.insertFinalNewline": true,
     "C_Cpp.formatting": "clangFormat",
+    "makefile.configurations": [
+        {
+            "name": "Unnamed configuration 1",
+            "problemMatchers": [
+                "$gcc",
+                "$msvc"
+            ],
+            "makeArgs": [
+                "clean"
+            ]
+        }
+    ],
     "[cpp]": {
         "editor.wordBasedSuggestions": "off",
         "editor.suggest.insertMode": "replace",

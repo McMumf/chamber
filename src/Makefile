@@ -11,8 +11,8 @@ SUPPORT=./mcp3008/mcp3008Spi.cpp
 prefix := /usr/local/
 
 # define all programs
-PROGRAMS = application 
-SOURCES = ${PROGRAMS:=.cpp} 
+PROGRAMS = application
+SOURCES = ${PROGRAMS:=.cpp}
 
 CXX=g++
 CFLAGS=${CCFLAGS}
