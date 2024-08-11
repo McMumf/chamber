@@ -26,7 +26,7 @@ def setup():
 setup()
 
 pwm = GPIO.PWM(pwm_pin_num, 25000)
-pwm.stat(0)
+pwm.start(0)
 
 time.sleep(2)
 
