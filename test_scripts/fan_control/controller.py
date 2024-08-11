@@ -16,7 +16,7 @@ NT07-115X Wiring
         - 4: Control/PWM
 """
 
-pwm_pin_num = 12
+pwm_pin_num = 18
 
 def setup():
     GPIO.setwarnings(False)
