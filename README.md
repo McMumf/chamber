@@ -19,6 +19,13 @@ BOM: [Chamber BOM](https://docs.google.com/spreadsheets/d/1ZfumkMcpwunLCNRvsuWQJ
 - [ArduiPi_OLED](https://github.com/hallard/ArduiPi_OLED) for interacting with the Arduino OLED
 - [pigpio](https://github.com/joan2937/pigpio)
 
+### Python venv
+
+```sh
+chamber@chamber-pi:~/chamber $ source chamber-venv/bin/activate
+(chamber-venv) chamber@chamber-pi:~/chamber $
+```
+
 ## Roadmap
 
 - Switch controlled interior lights
