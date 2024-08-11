@@ -16,16 +16,16 @@ NT07-115X Wiring
         - 4: Control/PWM
 """
 
-pwm_pin_num = 18
+pwm_gpio_pin_num = 18 # this will be GPIO Pin 18, the physical pin number is 12
 
 def setup():
     GPIO.setwarnings(False)
     GPIO.setmode(GPIO.BCM)
-    GPIO.setup(pwm_pin_num, GPIO.OUT)
+    GPIO.setup(pwm_gpio_pin_num, GPIO.OUT)
 
 setup()
 
-pwm = GPIO.PWM(pwm_pin_num, 25000)
+pwm = GPIO.PWM(pwm_gpio_pin_num, 25000)
 pwm.start(0)
 
 time.sleep(2)
