@@ -23,6 +23,8 @@ def setup():
     GPIO.setmode(GPIO.BCM)
     GPIO.setup(pwm_pin_num, GPIO.OUT)
 
+setup()
+
 pwm = GPIO.PWM(pwm_pin_num, 25000)
 pwm.stat(0)
 
