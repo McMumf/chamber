@@ -18,7 +18,8 @@ def setup():
     GPIO.setwarnings(False)
     GPIO.setmode(GPIO.BCM)
     GPIO.setup(pwm_gpio_pin_num, GPIO.OUT)
-    GPIO.setup(dir_pin, GPIO.OUT) o
+    GPIO.setup(dir_pin, GPIO.OUT) 
+    GPIO.output(dir_pin, False)
 
 setup()
 
