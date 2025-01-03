@@ -71,7 +71,7 @@ int get_a2d_val(int Channel) {
 }
 
 /**
- * Temperature in Celsius measured with an Amphenol TK95F232V NTC thermistor.
+ * Temperature in Celsius measured with an 
  *
  * @returns temperature in Celsius
  */

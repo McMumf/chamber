@@ -7,20 +7,22 @@ Individual Control for TEC1/Peltier
 
 MD10C R3 to GPIO Wiring
   - GND -> GND
-  - PWM -> 5.0v
-  - DIR -> 19
+  - PWM -> 19
+  - DIR -> 23
 """
 
+dir_pin = 23 # The direction of the tec
 pwm_gpio_pin_num = 19 # this will be GPIO Pin 19, the physical pin number is 35
 
 def setup():
     GPIO.setwarnings(False)
     GPIO.setmode(GPIO.BCM)
     GPIO.setup(pwm_gpio_pin_num, GPIO.OUT)
+    GPIO.setup(dir_pin, GPIO.OUT) o
 
 setup()
 
-pwm = GPIO.PWM(pwm_gpio_pin_num, 25000)
+pwm = GPIO.PWM(pwm_gpio_pin_num, 60)
 pwm.start(0)
 
 time.sleep(2)
