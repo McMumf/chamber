@@ -16,8 +16,7 @@
 #include "Adafruit_GFX.h"
 #include "ArduiPi_OLED.h"
 #include "ArduiPi_OLED_lib.h"
-#include <bcm2835.h>
-#include "./ds18b20/ds18b20.h"
+#include "ds18b20.h"
 #include "pigpio.h"
 
 using namespace std::literals::chrono_literals;
