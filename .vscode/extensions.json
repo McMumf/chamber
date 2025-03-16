@@ -1,7 +1,5 @@
 {
     "recommendations": [
         "ms-python.python",
-        "ms-vscode.cpptools",
-        "ms-vscode.makefile-tools"
     ]
 }

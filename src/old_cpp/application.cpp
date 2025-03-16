@@ -13,11 +13,12 @@
 #include <thread>
 #include <vector>
 
-#include "Adafruit_GFX.h"
-#include "ArduiPi_OLED.h"
-#include "ArduiPi_OLED_lib.h"
-#include "ds18b20.h"
-#include "pigpio.h"
+#include "<Adafruit_GFX.h>"
+#include "<ArduiPi_OLED.h>"
+#include "<ArduiPi_OLED_lib.h>"
+#include "<ds18b20.h>"
+#include "<bcm2385>"
+#include "<pigpio.h>"
 
 using namespace std::literals::chrono_literals;
 

@@ -1,23 +1,7 @@
 {
+    "editor.insertSpaces": true,
     "files.insertFinalNewline": true,
-    "C_Cpp.formatting": "clangFormat",
-    "makefile.configurations": [
-        {
-            "name": "Unnamed configuration 1",
-            "problemMatchers": [
-                "$gcc",
-                "$msvc"
-            ],
-            "makeArgs": [
-                "clean"
-            ]
-        }
-    ],
-    "[cpp]": {
-        "editor.wordBasedSuggestions": "off",
-        "editor.suggest.insertMode": "replace",
-        "editor.semanticHighlighting.enabled": true
-    },
+    "files.trimTrailingWhitespace": true,
     "[markdown]": {
         "editor.tabSize": 4,
         "editor.unicodeHighlight.ambiguousCharacters": false,
@@ -30,57 +14,23 @@
             "other": "off"
         }
     },
-    "files.associations": {
-        "iostream": "cpp",
-        "__bit_reference": "cpp",
-        "__hash_table": "cpp",
-        "__locale": "cpp",
-        "__node_handle": "cpp",
-        "__split_buffer": "cpp",
-        "__threading_support": "cpp",
-        "__verbose_abort": "cpp",
-        "array": "cpp",
-        "bitset": "cpp",
-        "cctype": "cpp",
-        "clocale": "cpp",
-        "cmath": "cpp",
-        "cstdarg": "cpp",
-        "cstddef": "cpp",
-        "cstdint": "cpp",
-        "cstdio": "cpp",
-        "cstdlib": "cpp",
-        "cstring": "cpp",
-        "ctime": "cpp",
-        "cwchar": "cpp",
-        "cwctype": "cpp",
-        "deque": "cpp",
-        "execution": "cpp",
-        "fstream": "cpp",
-        "initializer_list": "cpp",
-        "iomanip": "cpp",
-        "ios": "cpp",
-        "iosfwd": "cpp",
-        "istream": "cpp",
-        "limits": "cpp",
-        "locale": "cpp",
-        "mutex": "cpp",
-        "new": "cpp",
-        "optional": "cpp",
-        "ostream": "cpp",
-        "print": "cpp",
-        "queue": "cpp",
-        "ratio": "cpp",
-        "regex": "cpp",
-        "stack": "cpp",
-        "stdexcept": "cpp",
-        "streambuf": "cpp",
-        "string": "cpp",
-        "string_view": "cpp",
-        "tuple": "cpp",
-        "typeinfo": "cpp",
-        "unordered_map": "cpp",
-        "variant": "cpp",
-        "vector": "cpp",
-        "algorithm": "cpp"
+    "[python]": {
+        "diffEditor.ignoreTrimWhitespace": false,
+        "editor.defaultColorDecorators": "never",
+        "editor.formatOnType": true,
+        "editor.indentSize": 4,
+        "editor.wordBasedSuggestions": "off"
+    },
+    "[yaml]": {
+        "editor.insertSpaces": true,
+        "editor.tabSize": 2,
+        "editor.autoIndent": "keep",
+        "diffEditor.ignoreTrimWhitespace": false,
+        "editor.defaultColorDecorators": "never",
+        "editor.quickSuggestions": {
+            "other": true,
+            "comments": false,
+            "strings": true
+        }
     }
 }
