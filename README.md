@@ -28,6 +28,22 @@ chamber@chamber-pi:~/chamber $ source chamber-venv/bin/activate
 (chamber-venv) chamber@chamber-pi:~/chamber $
 ```
 
+### 1-wire Support
+
+#### Enable on Specific GPIO
+
+1. `sudo vi /boot/firmware/config.txt`
+2. Add the following to the end of the file:
+    ```shell
+    dtoverlay=w1-gpio,gpiopin=22
+    ```
+3. Reboot the pi: `sudo reboot`
+
+#### Load Kernel Modules
+
+1. `sudo modprobe w1-gpio`
+2. `sudo modprobe w1-therm`
+
 ## Roadmap
 
 - Switch controlled interior lights
