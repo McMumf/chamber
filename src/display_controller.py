@@ -31,8 +31,6 @@ class DisplayController:
     not support PIL/pillow (python imaging library)!
     """
 
-
-
     # Use for I2C.
     # i2c = board.I2C()  # uses board.SCL and board.SDA
     # i2c = board.STEMMA_I2C()  # For using the built-in STEMMA QT connector on a microcontroller
@@ -66,6 +64,7 @@ class DisplayController:
         self.oled_cs = digitalio.DigitalInOut(board.D5)
         self.oled_dc = digitalio.DigitalInOut(board.D6)
         self.oled = adafruit_ssd1306.SSD1306_SPI( self.WIDTH,  self.HEIGHT, spi, self.oled_dc, self.oled_reset, self.oled_cs)
+        self.oled.command(adafruit_ssd1306.ssd1306_displayon)
 
         # Create blank image for drawing.
         # Make sure to create image with mode '1' for 1-bit color.
@@ -116,3 +115,6 @@ class DisplayController:
         # Display image
         self.oled.image(self.image)
         self.oled.show()
+
+    def cleanup(self):
+        self.oled.command(adafruit_ssd1306.ssd1306_displayoff)

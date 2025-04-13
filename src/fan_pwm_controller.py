@@ -1,7 +1,7 @@
 import RPi.GPIO as GPIO
 import time
 
-class PwmController:
+class FanPwmController:
     """
     Class to control Pulse Width Modulation (PWM) for the fans and peltier.
 
@@ -20,6 +20,7 @@ class PwmController:
 
     def __init__(self, pwm_gpio_pin = 18):
         pwm_gpio_pin_num = pwm_gpio_pin # this will be GPIO Pin 18, the physical pin number is 12
+        self.setup()
         self.pwm = GPIO.PWM(pwm_gpio_pin_num, 25000)
 
     def set_duty_cycle(self, duty_cycle: float):
@@ -48,4 +49,4 @@ class PwmController:
         """
         self.pwm.ChangeDutyCycle(0)
         self.pwm.stop()
-        GPIO.cleanup()
+
