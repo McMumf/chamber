@@ -28,7 +28,14 @@ chamber@chamber-pi:~/chamber $ source chamber-venv/bin/activate
 (chamber-venv) chamber@chamber-pi:~/chamber $
 ```
 
-### 1-wire Support
+### SPI Support
+
+1. `sudo raspi-config`
+2. Select interfaces
+3. Select SPI
+4. Enable
+
+### 1-Wire Support
 
 #### Enable on Specific GPIO
 
