@@ -61,7 +61,3 @@ chamber@chamber-pi:~/chamber $ source chamber-venv/bin/activate
 
 ![block_diagram](concept/block_diagram_20191107.png)
 
-## Considerations
-
-- DS18B20 CPP Code shamelessly copy/pasted from [DS18B20_cpp](https://github.com/nilshenrich/DS18B20_cpp/tree/main)
-
