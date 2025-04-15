@@ -17,9 +17,7 @@ pwm_gpio_pin_num = 19 # this will be GPIO Pin 19, the physical pin number is 35
 class PeltierPwmController:
 
     def __init__(self, pwm_gpio_pin = 18, dir_pin = 23):
-        pwm_gpio_pin_num = pwm_gpio_pin
-        self.setup()
-        self.pwm = GPIO.PWM(pwm_gpio_pin_num, 60)
+        self.pwm_gpio_pin_num = pwm_gpio_pin
         self.dir_pin = dir_pin
 
     def set_duty_cycle(self, duty_cycle: float):
@@ -35,13 +33,16 @@ class PeltierPwmController:
 
     def setup(self):
         """
-        Configure GPIO for pwm
+        Configure GPIO for pwm and start it
         """
         GPIO.setwarnings(False)
         GPIO.setmode(GPIO.BCM)
         GPIO.setup(pwm_gpio_pin_num, GPIO.OUT)
         GPIO.setup(dir_pin, GPIO.OUT)
         GPIO.output(dir_pin, False)
+        self.pwm = GPIO.PWM(pwm_gpio_pin_num, 60)
+        self.pwm.start(0)
+
 
     def cleanup(self):
         """
