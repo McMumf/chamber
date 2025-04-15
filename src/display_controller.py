@@ -119,6 +119,9 @@ class DisplayController:
         self.oled.show()
 
     def cleanup(self):
+        """
+        Turn off display.
+        """
         self.oled.poweroff()
 
     def clear_display(self):
