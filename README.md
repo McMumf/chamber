@@ -28,7 +28,14 @@ chamber@chamber-pi:~/chamber $ source chamber-venv/bin/activate
 (chamber-venv) chamber@chamber-pi:~/chamber $
 ```
 
-### 1-wire Support
+### SPI Support
+
+1. `sudo raspi-config`
+2. Select interfaces
+3. Select SPI
+4. Enable
+
+### 1-Wire Support
 
 #### Enable on Specific GPIO
 
@@ -53,8 +60,4 @@ chamber@chamber-pi:~/chamber $ source chamber-venv/bin/activate
 ## Hardware Block Diagram
 
 ![block_diagram](concept/block_diagram_20191107.png)
-
-## Considerations
-
-- DS18B20 CPP Code shamelessly copy/pasted from [DS18B20_cpp](https://github.com/nilshenrich/DS18B20_cpp/tree/main)
 

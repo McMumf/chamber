@@ -1,3 +1,4 @@
+from OperatingMode import OperatingMode
 from display_controller import DisplayController
 from ds18b20_controller import Ds18b20Controller
 from fan_pwm_controller import FanPwmController
@@ -6,14 +7,12 @@ import RPi.GPIO as GPIO
 import signal
 import sys
 
-from enum import Enum
-
 stop = False
 
-class OperatingMode(Enum):
-    HEATING = 1
-    COOLING = 2
-    RESTING = 3
+display_controller = DisplayController()
+ds18b20_controller = Ds18b20Controller()
+fan_pwm = FanPwmController()
+peltier_pwm = PeltierPwmController()
 
 def signal_handler(signum, frame):
     print('Handling signal')
@@ -29,46 +28,49 @@ def decrease_temp_setpoint():
 def main():
     print("Hello World!")
 
-    display_controller = DisplayController()
-    ds18b20_controller = Ds18b20Controller()
-    fan_pwm = FanPwmController()
-    peltier_pwm = PeltierPwmController()
-
-    # Initialize
-    display_controller.init_display()
-
-    _, fahrenheit = ds18b20_controller.read_temp()
-
     target_temp_f = 75
     flip_flop = 0
     loop_count = 0
-    mode = OperatingMode.REST
+    mode = OperatingMode.RESTING
+
+    # Initialize
+    display_controller.init_display()
+    fan_pwm.setup()
+    peltier_pwm.setup()
 
     while (not stop):
+        _, fahrenheit = ds18b20_controller.read_temp()
         if (abs(fahrenheit - target_temp_f) > 1 or mode != OperatingMode.RESTING):
             if (fahrenheit > target_temp_f):
                 if (mode == OperatingMode.HEATING):
+                    print('Mode is heating, flip flopping')
                     flip_flop += 1
                 else:
+                    print('Time to cool')
                     mode = OperatingMode.COOLING
             else:
                 if (mode == OperatingMode.COOLING):
+                    print('time to heatup')
                     flip_flop += 1
                 else:
-                    mode == OperatingMode.HEATING
+                    print('Changing mode to heating')
+                    mode = OperatingMode.HEATING
 
         if (flip_flop > 0 or mode == OperatingMode.RESTING):
             # Disable fans and Peltier near target temp.
+            print('Disabling fans')
             fan_pwm.set_duty_cycle(0)
             peltier_pwm.set_duty_cycle(0)
             flip_flop = 0
         else:
+            print('Enabling fans')
             fan_pwm.set_duty_cycle(100)
             peltier_pwm.set_duty_cycle(100)
 
         # Display and print temperature at reduced loop rate.
         if (loop_count == 0 or loop_count % 10 == 0):
-            updated_text = f"Temp: {str(round(fahrenheit)) + chr(247)}F | {mode}\n     ({str(target_temp_f) + chr(247)}F)"
+            display_controller.clear_display()
+            updated_text = f"Temp: {str(round(fahrenheit)) + chr(176)}F | {str(mode)}\n Target Temp: {str(target_temp_f) + chr(176)}F"
             display_controller.draw_text(updated_text)
 
         print(f"Target: {target_temp_f}")
@@ -83,4 +85,10 @@ def main():
     GPIO.cleanup()
 
 if __name__ == "__main__":
-    main()
+    try:
+        main()
+    except:
+        fan_pwm.cleanup()
+        peltier_pwm.cleanup()
+        display_controller.cleanup()
+        GPIO.cleanup()
