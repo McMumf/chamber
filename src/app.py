@@ -59,13 +59,13 @@ def main():
         if (flip_flop > 0 or mode == OperatingMode.RESTING):
             # Disable fans and Peltier near target temp.
             print('Disabling fans')
-            fan_pwm.set_duty_cycle(0)
-            peltier_pwm.set_duty_cycle(0)
+            fan_pwm.ChangeDutyCycle(0)
+            peltier_pwm.ChangeDutyCycle(0)
             flip_flop = 0
         else:
             print('Enabling fans')
-            fan_pwm.set_duty_cycle(100)
-            peltier_pwm.set_duty_cycle(100)
+            fan_pwm.ChangeDutyCycle(100)
+            peltier_pwm.ChangeDutyCycle(100)
 
         # Display and print temperature at reduced loop rate.
         if (loop_count == 0 or loop_count % 10 == 0):
