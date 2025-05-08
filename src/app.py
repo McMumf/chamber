@@ -1,3 +1,4 @@
+#!/usr/bin/python
 from display_controller import DisplayController
 from ds18b20_controller import Ds18b20Controller
 from pwm_controller import PwmController
