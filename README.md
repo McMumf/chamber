@@ -28,6 +28,29 @@ chamber@chamber-pi:~/chamber $ source chamber-venv/bin/activate
 (chamber-venv) chamber@chamber-pi:~/chamber $
 ```
 
+### SPI Support
+
+1. `sudo raspi-config`
+2. Select interfaces
+3. Select SPI
+4. Enable
+
+### 1-Wire Support
+
+#### Enable on Specific GPIO
+
+1. `sudo vi /boot/firmware/config.txt`
+2. Add the following to the end of the file:
+    ```shell
+    dtoverlay=w1-gpio,gpiopin=22
+    ```
+3. Reboot the pi: `sudo reboot`
+
+#### Load Kernel Modules
+
+1. `sudo modprobe w1-gpio`
+2. `sudo modprobe w1-therm`
+
 ## Roadmap
 
 - Switch controlled interior lights
@@ -37,8 +60,4 @@ chamber@chamber-pi:~/chamber $ source chamber-venv/bin/activate
 ## Hardware Block Diagram
 
 ![block_diagram](concept/block_diagram_20191107.png)
-
-## Considerations
-
-- DS18B20 CPP Code shamelessly copy/pasted from [DS18B20_cpp](https://github.com/nilshenrich/DS18B20_cpp/tree/main)
 
