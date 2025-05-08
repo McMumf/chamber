@@ -1,3 +1,6 @@
+
+#!/usr/bin/python
+
 from OperatingMode import OperatingMode
 from display_controller import DisplayController
 from ds18b20_controller import Ds18b20Controller

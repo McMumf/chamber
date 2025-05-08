@@ -1,0 +1,11 @@
+[Unit]
+Description=Chamber
+After=multi-user.target
+
+[Service]
+Type=simple
+ExecStart=source /home/chamber/chamber/chamber-venv/bin/activate; python /home/chamber/chamber/src/app.py
+Restart=on-abort
+
+[Install]
+WantedBy=multi-user.target
