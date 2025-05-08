@@ -39,7 +39,7 @@ class FanPwmController:
         GPIO.setwarnings(False)
         GPIO.setmode(GPIO.BCM)
         GPIO.setup(self.pwm_gpio_pin_num, GPIO.OUT)
-        self.pwm = GPIO.PWM(self.pwm_gpio_pin_num, 25000)
+        self.pwm = GPIO.PWM(self.pwm_gpio_pin_num, 25)
         self.pwm.start(0)
 
     def cleanup(self):

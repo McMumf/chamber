@@ -9,10 +9,12 @@ Adafruit-GPIO==1.0.3
 Adafruit-PlatformDetect==3.64.0
 Adafruit-PureIO==1.1.11
 Adafruit-SSD1306==1.6.2
+lgpio==0.2.2.0
 pillow==10.3.0
 pyftdi==0.55.4
 pyserial==3.5
 pyusb==1.2.1
+rpi-lgpio==0.6
 rpi-ws281x==5.0.0
 RPi.GPIO==0.7.1
 spidev==3.6
