@@ -7,6 +7,8 @@ from ds18b20_controller import Ds18b20Controller
 from fan_pwm_controller import FanPwmController
 from peltier_pwm_controller import PeltierPwmController
 import RPi.GPIO as GPIO
+import traceback
+
 
 stop = False
 
@@ -89,7 +91,7 @@ def main():
                 peltier_pwm.set_duty_cycle(0)
 
         # Display and print temperature at reduced loop rate.
-        if (loop_count == 0 or loop_count % 10 == 0):
+        if (loop_count == 0 or loop_count % 5 == 0):
             display_controller.clear_display()
             updated_text = f"Temp: {str(round(fahrenheit)) + chr(176)}F | {str(mode)}\n Target Temp: {str(target_temp_f) + chr(176)}F"
             display_controller.draw_text(updated_text)
@@ -110,6 +112,7 @@ if __name__ == "__main__":
         main()
     except Exception as e:
         print(e)
+        print(traceback.format_exc())
         fan_pwm.set_duty_cycle(0)
         fan_pwm.cleanup()
         peltier_pwm.set_duty_cycle(0)

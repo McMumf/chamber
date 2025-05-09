@@ -4,7 +4,7 @@ After=multi-user.target
 
 [Service]
 Type=simple
-ExecStart=source /home/chamber/chamber/chamber-venv/bin/activate; python /home/chamber/chamber/src/app.py
+ExecStart=/home/chamber/chamber/chamber-venv/bin/python /home/chamber/chamber/src/app.py
 Restart=on-abort
 
 [Install]
